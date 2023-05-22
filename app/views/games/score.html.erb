@@ -1,0 +1,13 @@
+
+<h1>Result</h1>
+<%= @message %>
+
+<% @letters.each do |letter| %>
+<h1><%= letter %></h1>
+<% end %>
+<h1><%= @word %></h1>
+<h1><%= @real_word %></h1>
+
+<% if @win %>
+  <h1>Your <%= @word %> won!</h1>
+<% end %>
