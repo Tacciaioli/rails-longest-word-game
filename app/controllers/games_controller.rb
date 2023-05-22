@@ -1,10 +1,8 @@
 require 'open-uri'
 require 'json'
 
-
 class GamesController < ApplicationController
   def home
-
   end
 
   def new
@@ -13,17 +11,16 @@ class GamesController < ApplicationController
     10.times do
       @letters_sample << @letters.sample
     end
-
   end
 
   def score
     @letters = params[:letters_sample].split
-    @word = params[:word]
+    @word = params[:word].upcase
     # raise
     @valid_grid = valid_grid()
     @english = english_word()
     if @valid_grid == false
-      @message = "Sorry but #{@word} can't be built out of #{@letters.split(",")}"
+      @message = "Sorry but #{@word} can't be built out of #{@letters.join}"
     else
       if @english == false
         @message = "Sorry but #{@word} does not seem to be a valid English word..."
